@@ -1,33 +1,82 @@
-# Getting Started with Create React App
+# Berkay Acar - Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Portfolio Preview](public/og-image.jpg)
 
-## Available Scripts
+A modern, responsive portfolio website built with React, showcasing my skills, projects, and professional experience. The portfolio features advanced animations using Framer Motion, dark/light mode with Theme Context, responsive design, and contact form integration with EmailJS.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **Responsive Design**: Mobile-first approach ensuring perfect display across all devices
+- **Dark/Light Mode**: Toggle between themes with smooth transitions
+- **Interactive UI**: Smooth animations and transitions using Framer Motion
+- **Optimized Performance**: Fast loading times with optimized images and code
+- **Contact Form**: EmailJS integration for sending messages without a backend
+- **Modern Tech Stack**: Built with React 19, Framer Motion, and styled-components
+- **SEO Optimized**: Meta tags and structured data for better search engine visibility
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React** - Front-end library
+- **Framer Motion** - Animation library
+- **Styled Components** - CSS-in-JS styling
+- **EmailJS** - Contact form functionality
+- **React Icons** - Icon library
 
-### `npm test`
+## 🛠️ Installation & Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/berkayacar/portfolio-website.git
+   cd portfolio-website
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create a `.env` file in the root directory and add your EmailJS credentials:
+
+   ```
+   REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+   REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+   REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+
+## 📦 Build & Deployment
+
+1. Build for production:
+
+   ```bash
+   npm run build
+   ```
+
+2. Deploy to Netlify:
+   ```bash
+   npm run deploy
+   ```
+
+## 💡 Development Tools
+
+- **ResponsiveTester**: Press the monitor icon in the lower right corner to test various screen sizes
+
+## 👨‍💻 Author
+
+**Berkay Acar** - Fullstack Developer
+
+- [LinkedIn](https://linkedin.com/in/berkayacar)
+- [GitHub](https://github.com/berkayacar)
+- [Portfolio](https://berkayacar.com)
 
 ### `npm run eject`
 

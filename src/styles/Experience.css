@@ -1,0 +1,148 @@
+/* Experience section styles */
+.experience-section {
+  position: relative;
+  background-color: var(--background);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -49px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 4px solid var(--background);
+  box-shadow: 0 0 0 3px var(--primary-dark);
+  z-index: 1;
+}
+
+.timeline-content {
+  padding: 2rem;
+  border-radius: var(--radius);
+  margin-left: 20px;
+  position: relative;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px var(--shadow);
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.timeline-period {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  border-radius: var(--radius);
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-details {
+  margin: 1.5rem 0;
+}
+
+.timeline-details ul {
+  padding-left: 1.5rem;
+}
+
+.timeline-details li {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-dot {
+    left: -39px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline-dot {
+    left: -19px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    border-width: 3px;
+  }
+
+  .timeline-content {
+    padding: 1.25rem;
+    margin-left: 40px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.25rem;
+  }
+}

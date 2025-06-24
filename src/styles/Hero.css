@@ -1,0 +1,347 @@
+/* Hero section styles */
+.hero-section {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: 80px; /* Added space for fixed navbar */
+  padding-bottom: 80px; /* Additional padding at the bottom */
+  overflow: hidden;
+  background-color: var(--background);
+  z-index: 1;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--text-light);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.tech-orbit {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+.tech-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 40px var(--shadow);
+  animation: rotate 20s linear infinite;
+  background: radial-gradient(
+    circle,
+    rgba(var(--primary-rgb), 0.1),
+    rgba(var(--secondary-rgb), 0.05)
+  );
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tech-item {
+  position: absolute;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 15px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.tech-item:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #61dafb; /* React color */
+}
+
+.tech-item:nth-child(2) {
+  top: 25%;
+  right: 70%;
+  color: #512bd4; /* .NET color */
+}
+
+.tech-item:nth-child(3) {
+  top: 30%;
+  right: 0;
+  transform: translateY(-50%);
+  color: #0175c2; /* Flutter color */
+}
+
+.tech-item:nth-child(4) {
+  top: 50%;
+  right: 80%;
+  color: #3178c6; /* TypeScript color */
+}
+
+.tech-item:nth-child(5) {
+  bottom: 30%;
+  right: 0;
+  color: #9b4f96; /* C# color */
+}
+
+.tech-item:nth-child(6) {
+  bottom: 10%;
+  right: 10%;
+  color: #f7df1e; /* JavaScript color */
+}
+
+.tech-item:nth-child(7) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #764abc; /* Redux color */
+}
+
+.tech-item:nth-child(8) {
+  bottom: 10%;
+  left: 10%;
+  color: #339933; /* Bloc color */
+}
+
+.tech-item:nth-child(9) {
+  bottom: 30%;
+  left: 10%;
+  color: #00aff0; /* riverppod color */
+}
+
+.tech-item:nth-child(10) {
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  color: #30d5c8; /* SQL color */
+}
+.tech-item:nth-child(11) {
+  top: 10%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: #30d5c8; /* azure color */
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  gap: 0.5rem;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--text-light);
+  border-radius: 20px;
+  position: relative;
+}
+
+.mouse::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 4px;
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* Hero animation */
+/* We're removing these static states since we're using Framer Motion for animations now */
+/* The animation states are handled by Framer Motion in the React component */
+
+/* Background animations */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(var(--primary-rgb), 0.15),
+    transparent 60%
+  );
+  z-index: -1;
+  animation: pulse 15s infinite alternate;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at bottom left,
+    rgba(var(--secondary-rgb), 0.15),
+    transparent 60%
+  );
+  z-index: -1;
+  animation: pulse 15s infinite alternate-reverse;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .tech-orbit {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    text-align: center;
+  }
+
+  .hero-description {
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0 15px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-actions .btn {
+    width: 80%;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .tech-orbit {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  .tech-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-section {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}
