@@ -1,6 +1,6 @@
 # Berkay Acar - Personal Portfolio Website
 
-![Portfolio Preview](public/og-image.jpg)
+![Portfolio Preview](public/og-image.png)
 
 A modern, responsive portfolio website built with React, showcasing my skills, projects, and professional experience. The portfolio features advanced animations using Framer Motion, dark/light mode with Theme Context, responsive design, and contact form integration with EmailJS.
 
@@ -18,6 +18,7 @@ A modern, responsive portfolio website built with React, showcasing my skills, p
 
 - **React** - Front-end library
 - **Framer Motion** - Animation library
+- **Animejs** - Animation library
 - **Styled Components** - CSS-in-JS styling
 - **EmailJS** - Contact form functionality
 - **React Icons** - Icon library
@@ -27,7 +28,7 @@ A modern, responsive portfolio website built with React, showcasing my skills, p
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/berkayacar/portfolio-website.git
+   git clone https://github.com/Berkawaii/PortfolioReactApp.git
    cd portfolio-website
    ```
 
@@ -74,9 +75,9 @@ A modern, responsive portfolio website built with React, showcasing my skills, p
 
 **Berkay Acar** - Fullstack Developer
 
-- [LinkedIn](https://linkedin.com/in/berkayacar)
-- [GitHub](https://github.com/berkayacar)
-- [Portfolio](https://berkayacar.com)
+- [LinkedIn](https://linkedin.com/in/imberkay)
+- [GitHub](https://github.com/Berkawaii)
+- [Portfolio](https://iamberkay.com)
 
 ### `npm run eject`
 
