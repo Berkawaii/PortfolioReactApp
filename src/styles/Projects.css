@@ -226,7 +226,7 @@
 }
 
 .project-link.github-link {
-  color: #24292e;
+  color: var(--text); /* Tema değişkenini kullanarak metin rengini ayarla */
 }
 
 .project-link.app-store-link,
