@@ -113,6 +113,26 @@ const Projects = () => {
         "Git",
       ],
     },
+    {
+      id: 6,
+      title: "Adventurer's Ledger",
+      description:
+        "fantasy-themed mobile application designed to help you manage your characters in Dungeons & Dragons and similar tabletop role-playing games. Easily track your characters' attributes, abilities, equipment, and stories all in one place.",
+      image: "adventurersLedger.png",
+      category: ["mobile"],
+      link: "https://github.com/Berkawaii/AdventurersLedger/tree/main",
+      tech: [
+        "Flutter",
+        "RESTful API",
+        "Firebase",
+        "Open5e",
+        "Dart",
+        "Git",
+        "CI/CD",
+        "Android",
+        "iOS",
+      ],
+    },
   ];
 
   const filteredProjects =
