@@ -57,6 +57,12 @@ const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
 
+  .nav-items-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
@@ -71,6 +77,12 @@ const NavLinks = styled.div`
     transition: right 0.3s ease;
     z-index: 101;
     align-items: flex-start;
+
+    .nav-items-container {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
   }
 `;
 
@@ -109,6 +121,13 @@ const ThemeButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+`;
+
+// Resume linki için diğer NavLink'ler ile aynı stilde ama özel ikon eklenmiş versiyon
+const ResumeLink = styled(NavLink)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const Overlay = styled.div`
@@ -207,8 +226,16 @@ const Navbar = () => {
             </MenuButton>
           )}
 
-          {["home", "about", "experience", "skills", "projects", "contact"].map(
-            (section, index) => (
+          <div className="nav-items-container">
+            {/* Navigasyon linkleri */}
+            {[
+              "home",
+              "about",
+              "experience",
+              "skills",
+              "projects",
+              "contact",
+            ].map((section, index) => (
               <motion.div
                 key={section}
                 initial={{ opacity: 0, y: -20 }}
@@ -223,35 +250,36 @@ const Navbar = () => {
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </NavLink>
               </motion.div>
-            )
-          )}
+            ))}
 
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
-            <motion.a
-              href={resume}
-              download="berkay-acar-resume.pdf"
-              className="resume-btn"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              aria-label="Download Resume"
+            {/* Resume linki */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              style={{ display: "inline-flex" }}
             >
-              <FiDownload style={{ fontSize: "1.1rem" }} /> Resume
-            </motion.a>
-          </motion.div>
+              <ResumeLink
+                href={resume}
+                download="berkay-acar-resume.pdf"
+                aria-label="Download Resume"
+              >
+                <FiDownload /> Resume
+              </ResumeLink>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <ThemeButton onClick={toggleTheme}>
-              {isDarkMode ? <FiSun /> : <FiMoon />}
-            </ThemeButton>
-          </motion.div>
+            {/* Tema değiştirme butonu */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              style={{ display: "inline-flex" }}
+            >
+              <ThemeButton onClick={toggleTheme}>
+                {isDarkMode ? <FiSun /> : <FiMoon />}
+              </ThemeButton>
+            </motion.div>
+          </div>
         </NavLinks>
       </NavContainer>
 
