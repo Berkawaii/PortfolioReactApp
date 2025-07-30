@@ -73,15 +73,17 @@ const NavLinks = styled.div`
     background-color: var(--background);
     box-shadow: -5px 0 15px var(--shadow);
     flex-direction: column;
-    padding: 5rem 2rem;
+    padding: 5rem 2rem 2rem;
     transition: right 0.3s ease;
     z-index: 101;
     align-items: flex-start;
+    overflow-y: auto; /* Mobilde kaydırma ekle */
 
     .nav-items-container {
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
+      gap: 1rem;
     }
   }
 `;
@@ -128,6 +130,10 @@ const ResumeLink = styled(NavLink)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem; /* Mobil görünümde daha fazla boşluk */
+  }
 `;
 
 const Overlay = styled.div`

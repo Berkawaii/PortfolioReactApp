@@ -115,6 +115,7 @@ const Hero = () => {
             className="hero-description"
             variants={fadeInUp}
             transition={{ duration: 0.5, delay: 0.4 }}
+            style={{ maxWidth: "100%" }}
           >
             I see life as one big puzzle and coding as the ultimate cheat sheet.
             My passion for solving problems began early (thanks to childhood
@@ -134,7 +135,7 @@ const Hero = () => {
               Get in Touch
             </a>
             <a href="#projects" className="btn btn-outline">
-              View My Projects
+              View Projects
             </a>
           </motion.div>
         </motion.div>
@@ -149,7 +150,7 @@ const Hero = () => {
           <motion.div
             className="tech-orbit"
             animate={{ rotate: 360 }}
-            style={{ display: "flex" }}
+            style={{ display: "flex", maxWidth: "100%" }}
             transition={{
               duration: 30,
               repeat: Infinity,
@@ -183,6 +184,12 @@ const Hero = () => {
                   transition={{
                     duration: 0.5,
                     delay: 0.8 + index * 0.1,
+                  }}
+                  style={{
+                    boxSizing: "border-box",
+                    maxWidth: "90%",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                   }}
                 >
                   {tech}

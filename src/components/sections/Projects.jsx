@@ -121,12 +121,34 @@ const Projects = () => {
       image: "adventurersLedger.png",
       category: ["mobile"],
       link: "",
-      github: "https://github.com/Berkawaii/AdventurersLedger/tree/main",
+      github: "https://github.com/Berkawaii/AdventurersLedger",
       tech: [
         "Flutter",
         "RESTful API",
         "Firebase",
         "Open5e",
+        "Dart",
+        "Git",
+        "CI/CD",
+        "Android",
+        "iOS",
+      ],
+    },
+    {
+      id: 7,
+      title: "Chastity",
+      description:
+        "The goal of this project is to create a cross-platform app using Flutter and Europeana APIs, offering users a virtual museum experience. Art lovers can explore, search, and view cultural heritage objects, save favorites, and build personal collections—making art more accessible and immersive from any device.",
+
+      image: "chastity_logo.png",
+      category: ["mobile"],
+      link: "",
+      github: "https://github.com/Berkawaii/chastity",
+      tech: [
+        "Flutter",
+        "RESTful API",
+        "Firebase",
+        "Europeana API",
         "Dart",
         "Git",
         "CI/CD",
@@ -220,18 +242,20 @@ const Projects = () => {
                 <div className="project-img-container">
                   {project.image ? (
                     <>
-                      <motion.img
-                        className="project-img"
-                        src={`/images/projects/${project.image}`}
-                        alt={project.title}
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.style.display = "none";
-                          e.target.nextSibling.style.display = "flex";
-                        }}
-                      />
+                      <div className="image-wrapper">
+                        <motion.img
+                          className="project-img"
+                          src={`/images/projects/${project.image}`}
+                          alt={project.title}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.style.display = "none";
+                            e.target.nextSibling.style.display = "flex";
+                          }}
+                        />
+                      </div>
                       {project.video && (
                         <motion.button
                           className="video-play-button"

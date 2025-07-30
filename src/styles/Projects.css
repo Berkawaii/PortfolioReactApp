@@ -68,6 +68,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 550px; /* Add a minimum height to ensure consistency */
 }
 
 .project-card:hover {
@@ -77,16 +78,32 @@
 
 .project-img-container {
   width: 100%;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg);
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: var(--card-bg);
 }
 
 .project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   transition: transform 0.5s ease;
+  display: block;
+  margin: auto;
 }
 
 .project-img-placeholder {
@@ -99,9 +116,11 @@
   font-weight: 700;
   color: white;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 8px;
+  margin: 10px;
 }
 
-.project-card:hover .project-img {
+.project-card:hover .image-wrapper .project-img {
   transform: scale(1.05);
 }
 
@@ -341,9 +360,16 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Hover efekti kaldırıldı */
+
+.video-play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: rgba(var(--primary-rgb), 0.8);
+  border-color: white;
+}
 
 .video-play-button svg {
   font-size: 1.5rem;

@@ -10,6 +10,7 @@ import {
   FaCode,
   FaMobile,
   FaMicrosoft,
+  FaAngular,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -34,6 +35,7 @@ const Skills = () => {
       icon: <FaCode />,
       skills: [
         { name: "React", icon: <FaReact /> },
+        { name: "Angular", icon: <FaAngular /> },
         { name: "JavaScript", icon: <FaJs /> },
         { name: "TypeScript", icon: <SiTypescript /> },
         { name: "HTML5", icon: <FaHtml5 /> },

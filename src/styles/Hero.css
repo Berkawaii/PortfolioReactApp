@@ -12,6 +12,7 @@
   background-color: var(--background);
   z-index: 1;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .container {
@@ -19,6 +20,7 @@
   width: 90%;
   margin: 0 auto;
   padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .hero-container {
@@ -163,6 +165,8 @@
   width: 450px;
   height: 450px;
   margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .tech-circle {
@@ -382,6 +386,21 @@
   .tech-orbit {
     width: 350px;
     height: 350px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .hero-container {
+    min-height: auto;
+    padding: 2rem 0;
   }
 }
 
@@ -390,10 +409,16 @@
     text-align: center;
   }
 
+  .greeting {
+    font-size: 1.2rem;
+  }
+
   .hero-description {
     text-align: center;
     font-size: 0.95rem;
-    padding: 0 15px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-actions {
@@ -403,11 +428,13 @@
   }
 
   .hero-actions .btn {
-    width: 80%;
+    width: auto;
+    min-width: 140px;
+    padding: 0.75rem 1.25rem;
   }
 
   .name {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .title {
@@ -415,18 +442,17 @@
   }
 
   .tech-orbit {
-    width: 280px;
-    height: 280px;
-    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    margin: 1rem auto;
   }
 
   .tech-item {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 
-  .hero-section {
-    padding-top: 100px;
-    padding-bottom: 60px;
+  .scroll-indicator {
+    bottom: 1rem;
   }
 }
