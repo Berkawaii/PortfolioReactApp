@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { motion } from "framer-motion";
-import { FiSun, FiMoon, FiMenu, FiX, FiDownload } from "react-icons/fi";
+import { FiSun, FiMoon, FiMenu, FiX, FiDownload, FiChevronDown } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
 import resume from "../../assets/resume";
 
@@ -125,6 +126,98 @@ const ThemeButton = styled.button`
   align-items: center;
 `;
 
+// Resume dropdown için container
+const ResumeDropdown = styled.div`
+  position: relative;
+  display: inline-flex;
+`;
+
+// Resume ana buton
+const ResumeButton = styled.button`
+  background: none;
+  border: none;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
+`;
+
+// Dropdown menü
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px var(--shadow);
+  min-width: 180px;
+  z-index: 200;
+  opacity: ${props => props.isOpen ? 1 : 0};
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  transform: translateY(${props => props.isOpen ? '0' : '-10px'});
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+`;
+
+// Dropdown item
+const DropdownItem = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  &:first-child {
+    border-radius: 8px 8px 6px 6px;
+  }
+
+  &:last-child {
+    border-radius: 6px 6px 8px 8px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 0;
+    background: transparent !important;
+    
+    &:hover {
+      color: var(--primary);
+      background: transparent !important;
+    }
+  }
+`;
+
 // Resume linki için diğer NavLink'ler ile aynı stilde ama özel ikon eklenmiş versiyon
 const ResumeLink = styled(NavLink)`
   display: inline-flex;
@@ -133,6 +226,27 @@ const ResumeLink = styled(NavLink)`
 
   @media (max-width: 768px) {
     margin-top: 1rem; /* Mobil görünümde daha fazla boşluk */
+  }
+`;
+
+// GitHub linki için özel stil
+const GitHubLink = styled.a`
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
   }
 `;
 
@@ -156,6 +270,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 50);
@@ -204,6 +319,20 @@ const Navbar = () => {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  // Dropdown dışına tıklandığında kapatma
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isResumeDropdownOpen && !event.target.closest('.resume-dropdown')) {
+        setIsResumeDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isResumeDropdownOpen]);
 
   return (
     <Nav isScrolled={isScrolled}>
@@ -258,27 +387,61 @@ const Navbar = () => {
               </motion.div>
             ))}
 
-            {/* Resume linki */}
+            {/* GitHub linki */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
               style={{ display: "inline-flex" }}
             >
-              <ResumeLink
-                href={resume}
-                download="berkay-acar-resume.pdf"
-                aria-label="Download Resume"
+              <GitHubLink
+                href="https://github.com/Berkawaii"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit GitHub Profile"
               >
-                <FiDownload /> Resume
-              </ResumeLink>
+                <FaGithub /> GitHub
+              </GitHubLink>
+            </motion.div>
+
+            {/* Resume dropdown */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              style={{ display: "inline-flex" }}
+            >
+              <ResumeDropdown className="resume-dropdown">
+                <ResumeButton 
+                  onClick={() => setIsResumeDropdownOpen(!isResumeDropdownOpen)}
+                  aria-label="Download Resume"
+                >
+                  <FiDownload /> Resume <FiChevronDown style={{ transform: isResumeDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }} />
+                </ResumeButton>
+                <DropdownMenu isOpen={isResumeDropdownOpen}>
+                  <DropdownItem
+                    href="/resume/Berkay_Acar_mobile_developer.pdf"
+                    download="Berkay_Acar_mobile_developer.pdf"
+                    onClick={() => setIsResumeDropdownOpen(false)}
+                  >
+                    <FiDownload /> Mobile Developer
+                  </DropdownItem>
+                  <DropdownItem
+                    href="/resume/berkay-acar-resume.pdf"
+                    download="berkay-acar-resume.pdf"
+                    onClick={() => setIsResumeDropdownOpen(false)}
+                  >
+                    <FiDownload /> Full Stack Developer
+                  </DropdownItem>
+                </DropdownMenu>
+              </ResumeDropdown>
             </motion.div>
 
             {/* Tema değiştirme butonu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
               style={{ display: "inline-flex" }}
             >
               <ThemeButton onClick={toggleTheme}>
