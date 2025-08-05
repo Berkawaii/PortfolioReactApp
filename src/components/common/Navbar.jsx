@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX, FiDownload, FiChevronDown } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
-import resume from "../../assets/resume";
 
 const Nav = styled.nav`
   position: fixed;
@@ -215,17 +214,6 @@ const DropdownItem = styled.a`
       color: var(--primary);
       background: transparent !important;
     }
-  }
-`;
-
-// Resume linki için diğer NavLink'ler ile aynı stilde ama özel ikon eklenmiş versiyon
-const ResumeLink = styled(NavLink)`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  @media (max-width: 768px) {
-    margin-top: 1rem; /* Mobil görünümde daha fazla boşluk */
   }
 `;
 
